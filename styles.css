@@ -1,0 +1,742 @@
+/* Font Face Declaration */
+@font-face {
+    font-family: 'Vegan Style';
+    src: url('fonts/vegan-style-font/VeganStylePersonalUse-5Y58.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Blackberry Jam';
+    src: url('fonts/blackberry-jam-font/BlackberryJamPersonalUse-n12y.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 100%;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    background-color: #ffffff;
+    color: #333;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    min-height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    padding: 60px 20px 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.names {
+    font-family: 'Vegan Style', cursive;
+    font-size: 72px;
+    font-weight: normal;
+    color: #333;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 1),
+                 0 0 40px rgba(255, 255, 255, 0.8),
+                 0 0 60px rgba(255, 255, 255, 0.6);
+}
+
+.date {
+    font-family: 'Blackberry Jam', cursive;
+    font-weight: bold;
+    font-size: 22px;
+    color: #666;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 1),
+                 0 0 40px rgba(255, 255, 255, 0.8),
+                 0 0 60px rgba(255, 255, 255, 0.6);
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    gap: 5px;
+    z-index: 100;
+}
+
+.hamburger span {
+    width: 30px;
+    height: 2px;
+    background-color: #333;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Navigation Tabs */
+nav {
+    margin-top: 20px;
+}
+
+.nav-tabs {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.nav-tabs li {
+    display: inline-block;
+}
+
+.nav-tabs a {
+    text-decoration: none;
+    color: #666;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 8px 0;
+    position: relative;
+    transition: color 0.3s ease;
+    text-shadow: 0 0 30px rgba(255, 255, 255, 1),
+                 0 0 50px rgba(255, 255, 255, 1),
+                 0 0 70px rgba(255, 255, 255, 0.9),
+                 0 0 90px rgba(255, 255, 255, 0.7);
+}
+
+.nav-tabs a:hover {
+    color: #333;
+}
+
+.nav-tabs a.active {
+    color: #333;
+}
+
+.nav-tabs a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #333;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.nav-tabs a:hover::after,
+.nav-tabs a.active::after {
+    transform: scaleX(1);
+}
+
+/* Main Content */
+main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Registry Content */
+.registry-content {
+    text-align: center;
+    padding: 20px 20px;
+}
+
+.registry-content h2 {
+    font-family: 'Vegan Style', cursive;
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 30px;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 1),
+                 0 0 40px rgba(255, 255, 255, 0.8);
+}
+
+.registry-intro {
+    font-size: 18px;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto 50px;
+    line-height: 1.6;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 1),
+                 0 0 40px rgba(255, 255, 255, 0.8);
+}
+
+.registry-stores {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto 60px;
+}
+
+.store-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.store-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.store-card h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.store-card p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.registry-link {
+    display: inline-block;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 10px 25px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.registry-link:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+.registry-alternative {
+    max-width: 600px;
+    margin: 0 auto 50px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+}
+
+.registry-alternative h3 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.registry-alternative p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.registry-thanks {
+    font-size: 18px;
+    color: #666;
+    font-style: italic;
+    max-width: 700px;
+    margin: 0 auto;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 1),
+                 0 0 40px rgba(255, 255, 255, 0.8);
+}
+
+/* Wedding Content */
+.wedding-content {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.wedding-content h2 {
+    font-family: 'Vegan Style', cursive;
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 30px;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 1),
+                 0 0 40px rgba(255, 255, 255, 0.8);
+}
+
+.venue-info {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 50px 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    max-width: 700px;
+    margin: 0 auto 60px;
+}
+
+.venue-date {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 36px;
+    color: #4a5f6a;
+    margin-bottom: 30px;
+    font-weight: normal;
+}
+
+.venue-name {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.venue-address {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 8px;
+    font-weight: normal;
+}
+
+.view-map-btn {
+    display: inline-block;
+    text-decoration: none;
+    color: #6b8e4e;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 12px 40px;
+    border: 2px solid #6b8e4e;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 30px auto 25px;
+}
+
+.view-map-btn:hover {
+    background-color: #6b8e4e;
+    color: #fff;
+}
+
+.formal-note {
+    font-size: 18px;
+    color: #333;
+    font-style: italic;
+    margin-top: 25px;
+}
+
+.contact-section {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.contact-section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.contact-item {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+.contact-item h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.contact-item p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Golden Border */
+/* .golden-border {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    border: 3px solid #fff;
+    border-radius: 8px;
+    pointer-events: none;
+    z-index: 2;
+    box-shadow: 
+        inset 0 0 20px rgba(255, 255, 255, 0.3),
+        0 0 20px rgba(255, 255, 255, 0.3),
+        inset 0 0 40px rgba(255, 255, 255, 0.2),
+        0 0 40px rgba(255, 255, 255, 0.2);
+}
+
+.golden-border::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+    border: 1px solid #fff;
+    border-radius: 6px;
+    box-shadow: 
+        inset 0 0 10px rgba(255, 255, 255, 0.4),
+        0 0 10px rgba(255, 255, 255, 0.4);
+} */
+
+/* Flower Decorations */
+.flowers {
+    pointer-events: none;
+    z-index: -1;
+}
+
+.flower {
+    position: absolute;
+    width: 280px;
+    height: auto;
+    opacity: 0.9;
+}
+
+/* Top Left Corner */
+.flower-1 {
+    top: -50px;
+    left: -50px;
+    transform: rotate(15deg);
+    width: 300px;
+}
+
+/* Top Right Corner */
+.flower-2 {
+    top: -40px;
+    right: -60px;
+    transform: rotate(-20deg);
+    width: 280px;
+}
+
+/* Top Edge (slightly right of center) */
+.flower-3 {
+    top: -30px;
+    right: 20%;
+    transform: rotate(-10deg);
+    width: 220px;
+}
+
+/* Left Edge (upper-middle) */
+.flower-4 {
+    top: 25%;
+    left: -70px;
+    transform: rotate(-15deg);
+    width: 260px;
+}
+
+/* Right Edge (upper-middle) */
+.flower-5 {
+    top: 30%;
+    right: -60px;
+    transform: rotate(20deg);
+    width: 270px;
+}
+
+/* Bottom Left Corner */
+.flower-6 {
+    bottom: 100px;
+    left: -40px;
+    transform: rotate(45deg);
+    width: 290px;
+}
+
+/* Bottom Right Corner */
+.flower-7 {
+    bottom: 250px;
+    right: -50px;
+    transform: rotate(-40deg);
+    width: 280px;
+}
+
+/* Left Edge (lower-middle) */
+.flower-8 {
+    top: 55%;
+    left: -50px;
+    transform: rotate(25deg);
+    width: 240px;
+}
+
+/* Right Edge (lower-middle) */
+.flower-9 {
+    top: 75%;
+    right: 100px;
+    transform: rotate(-25deg);
+    width: 250px;
+}
+
+/* Top Edge (slightly left of center) */
+.flower-10 {
+    top: -40px;
+    left: 20%;
+    transform: rotate(20deg);
+    width: 210px;
+}
+
+/* Bottom Edge (center) */
+.flower-11 {
+    bottom: 150px;
+    left: 50%;
+    transform: translateX(-50%) rotate(-5deg);
+    width: 260px;
+}
+
+/* Bottom Edge (left of center) */
+.flower-12 {
+    bottom: 80px;
+    left: 30%;
+    transform: rotate(20deg);
+    width: 230px;
+}
+
+/* Bottom Edge (right of center) */
+.flower-13 {
+    bottom: 90px;
+    right: 25%;
+    transform: rotate(-15deg);
+    width: 240px;
+}
+
+/* Dynamic Flowers (for registry page) */
+.flower-dynamic {
+    position: absolute;
+    height: auto;
+    animation-duration: 0.75s;
+    animation-timing-function: cubic-bezier(0.34, 1.35, 0.64, 1);
+    animation-fill-mode: both;
+}
+
+/* Flower slide animations from each edge */
+@keyframes slideFromTop {
+    from {
+        transform: translateY(-150%) rotate(0deg) scaleY(-1);
+        opacity: 0;
+    }
+    to {
+        opacity: 0.9;
+    }
+}
+
+@keyframes slideFromRight {
+    from {
+        transform: translateX(150%) rotate(0deg);
+        opacity: 0;
+    }
+    to {
+        opacity: 0.9;
+    }
+}
+
+@keyframes slideFromBottom {
+    from {
+        transform: translateY(150%) rotate(0deg);
+        opacity: 0;
+    }
+    to {
+        opacity: 0.9;
+    }
+}
+
+@keyframes slideFromLeft {
+    from {
+        transform: translateX(-150%) rotate(0deg);
+        opacity: 0;
+    }
+    to {
+        opacity: 0.9;
+    }
+}
+
+.flower-dynamic.from-top {
+    animation-name: slideFromTop;
+}
+
+.flower-dynamic.from-right {
+    animation-name: slideFromRight;
+}
+
+.flower-dynamic.from-bottom {
+    animation-name: slideFromBottom;
+}
+
+.flower-dynamic.from-left {
+    animation-name: slideFromLeft;
+}
+
+.flower-dynamic.from-top-left {
+    animation-name: slideFromLeft;
+}
+
+.flower-dynamic.from-top-right {
+    animation-name: slideFromRight;
+}
+
+.flower-dynamic.from-bottom-left {
+    animation-name: slideFromLeft;
+}
+
+.flower-dynamic.from-bottom-right {
+    animation-name: slideFromRight;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .names {
+        font-size: 48px;
+    }
+    
+    .date {
+        margin-bottom: 20px;
+    }
+    
+    /* Show hamburger on mobile */
+    .hamburger {
+        display: flex;
+    }
+    
+    /* Hide nav by default on mobile */
+    nav {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        margin-top: 0;
+    }
+    
+    nav.active {
+        max-height: 500px;
+        margin-top: 20px;
+    }
+    
+    .nav-tabs {
+        flex-direction: column;
+        gap: 0;
+        padding: 20px 0;
+    }
+    
+    .nav-tabs li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-tabs a {
+        display: inline-block;
+        padding: 15px 20px;
+        font-size: 14px;
+    }
+    
+    .nav-tabs a::after {
+        left: 0;
+        transform: none;
+    }
+    
+    .nav-tabs a:hover::after,
+    .nav-tabs a.active::after {
+        width: 100%;
+    }
+    
+    /* Wedding page responsive */
+    .wedding-content h2 {
+        font-size: 32px;
+    }
+    
+    .venue-info {
+        padding: 30px 20px;
+    }
+    
+    .venue-date {
+        font-size: 28px;
+    }
+    
+    .venue-name {
+        font-size: 22px;
+    }
+    
+    .venue-address {
+        font-size: 16px;
+    }
+    
+    .view-map-btn {
+        font-size: 16px;
+        padding: 10px 30px;
+    }
+    
+    .formal-note {
+        font-size: 16px;
+    }
+    
+    .contact-item {
+        padding: 20px;
+    }
+    
+    .contact-item h3 {
+        font-size: 18px;
+    }
+    
+    .flower-1 { width: 200px; }
+    .flower-2 { width: 180px; }
+    .flower-3 { width: 140px; }
+    .flower-4 { width: 170px; }
+    .flower-5 { width: 175px; }
+    .flower-6 { width: 190px; }
+    .flower-7 { width: 180px; }
+    .flower-8 { width: 160px; }
+    .flower-9 { width: 165px; }
+    .flower-10 { width: 135px; }
+    .flower-11 { width: 170px; }
+    .flower-12 { width: 150px; }
+    .flower-13 { width: 155px; }
+    
+    .golden-border {
+        top: 10px;
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+        border-width: 2px;
+    }
+    
+    .golden-border::before {
+        top: 4px;
+        left: 4px;
+        right: 4px;
+        bottom: 4px;
+    }
+}
+
