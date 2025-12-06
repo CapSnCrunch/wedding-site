@@ -176,6 +176,36 @@ main {
     z-index: 1;
 }
 
+/* Home Page Content */
+.home-content {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.home-content h2 {
+    font-family: 'Vegan Style', cursive;
+    font-size: 42px;
+    color: #333;
+    margin-bottom: 40px;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 1),
+                 0 0 40px rgba(255, 255, 255, 0.8);
+}
+
+/* Home Page Photo */
+.home-photo {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.home-photo img {
+    max-width: 100%;
+    max-height: 60vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
 /* Registry Content */
 .registry-content {
     text-align: center;
@@ -283,7 +313,8 @@ main {
     max-width: 700px;
     margin: 0 auto;
     text-shadow: 0 0 20px rgba(255, 255, 255, 1),
-                 0 0 40px rgba(255, 255, 255, 0.8);
+                 0 0 40px rgba(255, 255, 255, 0.8),
+                 0 0 60px rgba(255, 255, 255, 0.6);
 }
 
 /* Hotel Grid */
